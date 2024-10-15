@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>aufbaukurs</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <!-- Log4j Core (necessary for Log4j to work) -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.24.1</version>
+        </dependency>
+
+    </dependencies>
+
+    <profiles>
+
+        <!-- Profile for SLF4J Version 1.x with Log4j binding -->
+        <profile>
+            <id>slf4j-v1</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <!-- SLF4J 1.7.36 -->
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                    <version>1.7.36</version>
+                </dependency>
+
+                <!-- Log4j SLF4J Binding 2.24.1 -->
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <version>2.24.1</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <!-- Profile for SLF4J Version 2.x with Log4j binding -->
+        <profile>
+            <id>slf4j-v2</id>
+            <dependencies>
+                <!-- SLF4J 2.0.16 -->
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                    <version>2.0.16</version>
+                </dependency>
+
+                <!-- Log4j SLF4J Binding 2.24.1 -->
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j2-impl</artifactId>
+                    <version>2.24.1</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+    </profiles>
+
+</project>
